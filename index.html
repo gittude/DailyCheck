@@ -26,24 +26,180 @@
         p {
             color: #666;
         }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
+        .menu {
+            background: #007BFF;
+            padding: 10px;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .menu ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+        .menu ul li a {
             color: white;
-            background-color: #007BFF;
             text-decoration: none;
+            font-size: 18px;
+            padding: 8px;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            background: #007BFF;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            top: 30px;
+            left: 0;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
+        }
+        .submenu li {
+            padding: 10px;
+        }
+        .submenu li a {
+            color: #007BFF;
+            display: block;
+            text-decoration: none;
+        }
+        .submenu li a:hover {
+            background: #f0f0f0;
+        }
+        .menu ul li:hover .submenu {
+            display: block;
+        }
+        .image-container {
             margin-top: 20px;
         }
-        .btn:hover {
-            background-color: #0056b3;
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .image-caption {
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+        }
+        .image-caption a {
+            color: #7ab7f5; /* Azul clarito */
+            text-decoration: none;
+        }
+        .image-caption a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <nav class="menu">
+        <ul>
+            <li>
+                <a href="#">Webcams</a>
+                <ul class="submenu">
+                    <li><a href="#navacerrada" onclick="showNavacerrada()">Navacerrada</a></li>
+                    <li><a href="#cotos" onclick="showImage('cotos')">Cotos</a></li>
+                    <li><a href="#guardamar" onclick="showImage('guardamar')">Guardamar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Bienvenido a DailyCheck</h1>
-        <a href="#" class="btn">Comenzar Ahora</a>
+        <div class="image-container" id="image-container">
+            <div class="image-wrapper" id="navacerrada1-wrapper" style="display: none;">
+                <img id="navacerrada1" src="https://puertonavacerrada.com/webcam/WEBcamPala.jpg" alt="Imagen en vivo de Puerto Navacerrada">
+                <div class="image-caption">
+                    <span class="image-title">Live Webcam Puerto Navacerrada - Webcam Pala</span>
+                    <a href="https://puertonavacerrada.com/" target="_blank">© puertonavacerrada.com</a>
+                </div>
+            </div>
+
+            <div class="image-wrapper" id="navacerrada2-wrapper" style="display: none; margin-top: 20px;">
+                <img id="navacerrada2" src="https://puertonavacerrada.com/webcam/WEBcamTeleg.jpg" alt="Otra vista de Puerto Navacerrada">
+                <div class="image-caption">
+                    <span class="image-title">OLive Webcam Puerto Navacerrada - Webcam Telegrafista</span>
+                    <a href="https://puertonavacerrada.com/" target="_blank">© puertonavacerrada.com</a>
+                </div>
+            </div>
+
+            <div class="image-wrapper" id="navacerrada3-wrapper" style="display: none; margin-top: 20px;">
+                <img id="navacerrada3" src="https://infocar.dgt.es/etraffic/data/camaras/163994.jpg?t=1741502795249" alt="M601 PK12.5 Navacerrada">
+                <div class="image-caption">
+                    <span class="image-title">Live Webcam M601 PK12.5 en Navacerrada - Cámara DGT</span>
+                    <a href="https://www.dgt.es//" target="_blank">© dgt.es</a>
+                </div>
+            </div>
+
+            <div class="image-wrapper" id="navacerrada4-wrapper" style="display: none; margin-top: 20px;">
+                <img id="navacerrada4" src="https://infocar.dgt.es/etraffic/data/camaras/161040.jpg?t=1741503161041" alt="M601 PK15.6 Navacerrada">
+                <div class="image-caption">
+                    <span class="image-title">Live Webcam M601 PK15.6 en Navacerrada - Cámara DGT</span>
+                    <a href="https://www.dgt.es//" target="_blank">© dgt.es</a>
+                </div>
+            </div>
+
+            <div class="image-wrapper" id="navacerrada5-wrapper" style="display: none; margin-top: 20px;">
+                <img id="navacerrada5" src="https://infocar.dgt.es/etraffic/data/camaras/161041.jpg?t=1741503446559" alt="M601 PK18.5 Navacerrada">
+                <div class="image-caption">
+                    <span class="image-title">Live Webcam M601 PK18.5 en Navacerrada - Cámara DGT</span>
+                    <a href="https://www.dgt.es//" target="_blank">© dgt.es</a>
+                </div>
+            </div>
+
+            <div class="image-wrapper" id="navacerrada6-wrapper" style="display: none; margin-top: 20px;">
+                <img id="navacerrada6" src="https://infocar.dgt.es/etraffic/data/camaras/161041.jpg?t=1741503446559" alt="CL601 PK24.0 Segovia">
+                <div class="image-caption">
+                    <span class="image-title">Live Webcam CL601 PK24.0 en Segovia - Cámara DGT</span>
+                    <a href="https://www.dgt.es//" target="_blank">© dgt.es</a>
+                </div>
+            </div>
+
+            <div class="image-wrapper" id="navacerrada7-wrapper" style="display: none; margin-top: 20px;">
+                <img id="navacerrada7" src="https://infocar.dgt.es/etraffic/data/camaras/163995.jpg?t=1741503607637" alt="CL601 PK10.8 Segovia">
+                <div class="image-caption">
+                    <span class="image-title">Live Webcam CL601 PK10.8 en Segovia - Cámara DGT</span>
+                    <a href="https://www.dgt.es//" target="_blank">© dgt.es</a>
+                </div>
+            </div>
+            <div class="image-wrapper" id="cotos-wrapper" style="display: none;">
+                <img id="cotos" src="https://puertonavacerrada.com/webcam/WEBcamTeleg.jpg" alt="Vista de Cotos">
+                <div class="image-caption">
+                    <a href="https://puertonavacerrada.com/" target="_blank">© puertonavacerrada.com</a>
+                </div>
+            </div>
+            <div class="image-wrapper" id="guardamar-wrapper" style="display: none;">
+                <img id="guardamar" src="https://puertonavacerrada.com/webcam/WEBcamTeleg.jpg" alt="Vista de Guardamar">
+                <div class="image-caption">
+                    <a href="https://puertonavacerrada.com/" target="_blank">© puertonavacerrada.com</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        function showImage(id) {
+            document.querySelectorAll('.image-wrapper').forEach(wrapper => wrapper.style.display = 'none');
+            document.getElementById(id + '-wrapper').style.display = 'block';
+        }
+        function showNavacerrada() {
+            document.querySelectorAll('.image-wrapper').forEach(wrapper => wrapper.style.display = 'none');
+            document.getElementById('navacerrada1-wrapper').style.display = 'block';
+            document.getElementById('navacerrada2-wrapper').style.display = 'block';
+            document.getElementById('navacerrada3-wrapper').style.display = 'block';
+            document.getElementById('navacerrada4-wrapper').style.display = 'block';
+            document.getElementById('navacerrada5-wrapper').style.display = 'block';
+            document.getElementById('navacerrada6-wrapper').style.display = 'block';
+            document.getElementById('navacerrada7-wrapper').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
